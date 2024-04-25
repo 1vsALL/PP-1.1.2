@@ -6,17 +6,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Util {
-    // реализуйте настройку соеденения с БД
     private static String USER = "root";
     private static String BASE = "jdbc:mysql://localhost:3306/kataAcademy";
     private static String PASSWORD = "rootroot";
     private static Connection connection;
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
         try {
             connection = DriverManager.getConnection(BASE, USER, PASSWORD);
-        } catch ( SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return connection;
     }
