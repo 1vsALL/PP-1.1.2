@@ -18,7 +18,12 @@ public class UserDaoJDBCImpl implements UserDao {
     @Override
     public void createUsersTable() {
         try (Statement statement = util.getConnection().createStatement()) {
-            String SQL = "CREATE TABLE `Users` (\n" + "  `id` INT NOT NULL AUTO_INCREMENT,\n" + "  `name` VARCHAR(45) NULL,\n" + "  `lastName` VARCHAR(45) NULL,\n" + "  `age` INT NULL,\n" + "  PRIMARY KEY (`id`));";
+            String SQL = "CREATE TABLE `Users` (\n" + 
+                            "  `id` INT NOT NULL AUTO_INCREMENT,\n" + 
+                            "  `name` VARCHAR(45) NULL,\n" + 
+                            "  `lastName` VARCHAR(45) NULL,\n" + 
+                            "  `age` INT NULL,\n" + 
+                            "  PRIMARY KEY (`id`));";
             statement.executeUpdate(SQL);
         } catch (SQLException e) {
             throw new RuntimeException(e);
