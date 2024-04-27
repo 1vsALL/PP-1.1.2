@@ -11,13 +11,20 @@ public class Util {
     private static String PASSWORD = "rootroot";
     private static Connection connection;
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         try {
             connection = DriverManager.getConnection(BASE, USER, PASSWORD);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return connection;
+    }
+    public static void closeConnection() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

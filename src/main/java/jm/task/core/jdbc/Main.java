@@ -2,6 +2,7 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import jm.task.core.jdbc.util.Util;
 
 
 public class Main {
@@ -9,6 +10,7 @@ public class Main {
         // реализуйте алгоритм здесь
         UserService userService = new UserServiceImpl();
         userService.dropUsersTable();
+
         userService.createUsersTable();
 
         userService.saveUser("One", "lastOne", (byte) 1);
@@ -19,6 +21,6 @@ public class Main {
         userService.getAllUsers();
         userService.cleanUsersTable();
         userService.dropUsersTable();
-
+        Util.closeConnection();
     }
 }
